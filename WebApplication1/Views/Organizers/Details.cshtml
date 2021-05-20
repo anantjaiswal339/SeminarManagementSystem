@@ -1,0 +1,51 @@
+﻿@model WebApplication1.Models.Organizer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Organizer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizerMobileNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizerMobileNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizerAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizerAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrganizerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

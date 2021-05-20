@@ -1,0 +1,83 @@
+﻿@model WebApplication1.Models.Seminar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Seminar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeminarTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeminarTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeminarDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeminarDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeminarType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeminarType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeminarDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeminarDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeminarStartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeminarStartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeminarEndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeminarEndTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SeminarID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

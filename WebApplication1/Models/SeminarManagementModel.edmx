@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SeminarManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="OrganizerID" />
+          </Key>
+          <Property Name="OrganizerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrganizerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrganizerEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrganizerMobileNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="OrganizerAddress" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="ParticipantID" />
+          </Key>
+          <Property Name="ParticipantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeminarID" Type="int" Nullable="false" />
+          <Property Name="ParticipantName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParticipantEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParticipantMobileNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="ParticipantDOB" Type="date" />
+          <Property Name="IsAttended" Type="bit" />
+        </EntityType>
+        <EntityType Name="Seminar">
+          <Key>
+            <PropertyRef Name="SeminarID" />
+          </Key>
+          <Property Name="SeminarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrganizerID" Type="int" />
+          <Property Name="SeminarTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="SeminarDescription" Type="nvarchar(max)" />
+          <Property Name="SeminarType" Type="nvarchar" MaxLength="50" />
+          <Property Name="SeminarDate" Type="date" />
+          <Property Name="SeminarStartTime" Type="nvarchar" MaxLength="10" />
+          <Property Name="SeminarEndTime" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="SeminarManagementModelStoreContainer">
+          <EntitySet Name="Organizer" EntityType="Self.Organizer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participant" EntityType="Self.Participant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seminar" EntityType="Self.Seminar" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SeminarManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="OrganizerID" />
+          </Key>
+          <Property Name="OrganizerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrganizerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizerMobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizerAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="ParticipantID" />
+          </Key>
+          <Property Name="ParticipantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeminarID" Type="Int32" Nullable="false" />
+          <Property Name="ParticipantName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParticipantEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParticipantMobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ParticipantDOB" Type="DateTime" Precision="0" />
+          <Property Name="IsAttended" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Seminar">
+          <Key>
+            <PropertyRef Name="SeminarID" />
+          </Key>
+          <Property Name="SeminarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrganizerID" Type="Int32" />
+          <Property Name="SeminarTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SeminarDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SeminarType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SeminarDate" Type="DateTime" Precision="0" />
+          <Property Name="SeminarStartTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SeminarEndTime" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="SeminarManagementEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Organizers" EntityType="Self.Organizer" />
+          <EntitySet Name="Participants" EntityType="Self.Participant" />
+          <EntitySet Name="Seminars" EntityType="Self.Seminar" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SeminarManagementModelStoreContainer" CdmEntityContainer="SeminarManagementEntities1">
+          <EntitySetMapping Name="Organizers">
+            <EntityTypeMapping TypeName="SeminarManagementModel.Organizer">
+              <MappingFragment StoreEntitySet="Organizer">
+                <ScalarProperty Name="OrganizerID" ColumnName="OrganizerID" />
+                <ScalarProperty Name="OrganizerName" ColumnName="OrganizerName" />
+                <ScalarProperty Name="OrganizerEmail" ColumnName="OrganizerEmail" />
+                <ScalarProperty Name="OrganizerMobileNo" ColumnName="OrganizerMobileNo" />
+                <ScalarProperty Name="OrganizerAddress" ColumnName="OrganizerAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participants">
+            <EntityTypeMapping TypeName="SeminarManagementModel.Participant">
+              <MappingFragment StoreEntitySet="Participant">
+                <ScalarProperty Name="ParticipantID" ColumnName="ParticipantID" />
+                <ScalarProperty Name="SeminarID" ColumnName="SeminarID" />
+                <ScalarProperty Name="ParticipantName" ColumnName="ParticipantName" />
+                <ScalarProperty Name="ParticipantEmail" ColumnName="ParticipantEmail" />
+                <ScalarProperty Name="ParticipantMobileNo" ColumnName="ParticipantMobileNo" />
+                <ScalarProperty Name="ParticipantDOB" ColumnName="ParticipantDOB" />
+                <ScalarProperty Name="IsAttended" ColumnName="IsAttended" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seminars">
+            <EntityTypeMapping TypeName="SeminarManagementModel.Seminar">
+              <MappingFragment StoreEntitySet="Seminar">
+                <ScalarProperty Name="SeminarID" ColumnName="SeminarID" />
+                <ScalarProperty Name="OrganizerID" ColumnName="OrganizerID" />
+                <ScalarProperty Name="SeminarTitle" ColumnName="SeminarTitle" />
+                <ScalarProperty Name="SeminarDescription" ColumnName="SeminarDescription" />
+                <ScalarProperty Name="SeminarType" ColumnName="SeminarType" />
+                <ScalarProperty Name="SeminarDate" ColumnName="SeminarDate" />
+                <ScalarProperty Name="SeminarStartTime" ColumnName="SeminarStartTime" />
+                <ScalarProperty Name="SeminarEndTime" ColumnName="SeminarEndTime" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebApplication1.Models.Seminar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-heading">
+    <div class="pull-left">
+        <h4>Manage Seminars</h4>
+    </div>
+    <div class="pull-right">
+        @Html.ActionLink("Create New", "Create", new { area = "" }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Seminar Title
+        </th>
+        <th>
+            Seminar Description
+        </th>
+        <th>
+            Seminar Type
+        </th>
+        <th>
+            Seminar Date
+        </th>
+        <th>
+            Seminar StartTime
+        </th>
+        <th>
+            Seminar EndTime
+        </th>
+        <th>
+            Created At
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SeminarID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SeminarID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SeminarID })
+            </td>
+        </tr>
+    }
+
+</table>
