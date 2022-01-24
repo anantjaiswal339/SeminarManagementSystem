@@ -130,40 +130,31 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrganizersController.cs" />
+    <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Controllers\SeminarsController.cs" />
+    <Compile Include="Migrations\202105231246295_initial.cs" />
+    <Compile Include="Migrations\202105231246295_initial.Designer.cs">
+      <DependentUpon>202105231246295_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105290531242_emailvalidation.cs" />
+    <Compile Include="Migrations\202105290531242_emailvalidation.Designer.cs">
+      <DependentUpon>202105290531242_emailvalidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Seminar.cs" />
+    <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\Organizer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Organizer.cs">
-      <DependentUpon>SeminarManagementModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Participant.cs">
-      <DependentUpon>SeminarManagementModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Seminar.cs">
-      <DependentUpon>SeminarManagementModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SeminarManagementModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SeminarManagementModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SeminarManagementModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SeminarManagementModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SeminarManagementModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SeminarManagementModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ParticipantViewModel.cs" />
+    <Compile Include="Models\SeminarMaangementDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\SeminarManagement.mdf" />
-    <Content Include="App_Data\SeminarManagement_log.ldf">
-      <DependentUpon>SeminarManagement.mdf</DependentUpon>
+    <Content Include="App_Data\SeminarManagementDB.mdf" />
+    <Content Include="App_Data\SeminarManagementDB_log.ldf">
+      <DependentUpon>SeminarManagementDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -174,25 +165,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\SeminarManagementModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SeminarManagementModel.edmx</DependentUpon>
-      <LastGenOutput>SeminarManagementModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\SeminarManagementModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SeminarManagementModel.edmx</DependentUpon>
-      <LastGenOutput>SeminarManagementModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\SeminarManagementModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SeminarManagementModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SeminarManagementModel.edmx.diagram">
-      <DependentUpon>SeminarManagementModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -228,8 +202,16 @@
     <Content Include="Views\Seminars\Details.cshtml" />
     <Content Include="Views\Seminars\Edit.cshtml" />
     <Content Include="Views\Seminars\Index.cshtml" />
+    <Content Include="Views\Participants\Create.cshtml" />
+    <Content Include="Views\Participants\Delete.cshtml" />
+    <Content Include="Views\Participants\Details.cshtml" />
+    <Content Include="Views\Participants\Edit.cshtml" />
+    <Content Include="Views\Participants\Index.cshtml" />
+    <Content Include="Views\Seminars\ShowParticipants.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -245,6 +227,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105231246295_initial.resx">
+      <DependentUpon>202105231246295_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105290531242_emailvalidation.resx">
+      <DependentUpon>202105290531242_emailvalidation.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

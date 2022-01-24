@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebApplication1.Models.ParticipantViewModel>
+
+@{
+    ViewBag.Title = "Manage Seminars";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-heading">
+    <div class="pull-left">
+        <h4>Seminar Registration</h4>
+    </div>
+    <div class="pull-right">
+        @Html.ActionLink("Create New", "Create", new { area = "" }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Seminar
+        </th>
+        <th>
+            Participant Name
+        </th>
+        <th>
+            Participant Email
+        </th>
+        <th>
+            Participant MobileNo
+        </th>
+        <th>
+            Participant DOB
+        </th>
+        <th>
+            Is Attended
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeminarTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantMobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantDOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAttended)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ParticipantID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ParticipantID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ParticipantID })
+            </td>
+        </tr>
+    }
+
+</table>

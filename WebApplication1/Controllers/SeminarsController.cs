@@ -12,13 +12,18 @@ namespace WebApplication1.Controllers
 {
     public class SeminarsController : Controller
     {
-        private SeminarManagementEntities1 db = new SeminarManagementEntities1();
+        private SeminarMaangementDBContext db = new SeminarMaangementDBContext();
 
         // GET: Seminars
         public ActionResult Index()
         {
             return View(db.Seminars.ToList());
         }
+        public ActionResult ShowParticipants(int id)
+        {
+            var participants = db.Participants.Where(x => x.SeminarID == id).ToList();
+            return View(participants);
+        }        
 
         // GET: Seminars/Details/5
         public ActionResult Details(int? id)
@@ -66,6 +71,7 @@ namespace WebApplication1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.Organizer = db.Organizers.ToList();
             Seminar seminar = db.Seminars.Find(id);
             if (seminar == null)
             {

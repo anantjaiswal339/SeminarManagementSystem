@@ -5,19 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<div class="page-heading">
+    <div class="pull-left">
+        <h4>Create Organizer</h4>
+    </div>
+    <div class="pull-right">
+        @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "btn btn-info" })
+    </div>
+</div>
+<hr />
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Organizer</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.OrganizerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Organizer Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OrganizerName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OrganizerName, "", new { @class = "text-danger" })
@@ -25,7 +30,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OrganizerEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Organizer Email", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OrganizerEmail, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OrganizerEmail, "", new { @class = "text-danger" })
@@ -33,7 +38,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OrganizerMobileNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Organizer MobileNo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OrganizerMobileNo, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OrganizerMobileNo, "", new { @class = "text-danger" })
@@ -41,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OrganizerAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Organizer Address", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OrganizerAddress, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OrganizerAddress, "", new { @class = "text-danger" })
@@ -50,15 +55,11 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

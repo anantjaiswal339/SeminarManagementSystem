@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebApplication1.Models.Participant>
+
+@{
+    ViewBag.Title = "Show Participants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-heading">
+    <div class="pull-left">
+        <h4>Show Participants</h4>
+    </div>
+    <div class="pull-right">
+        @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "btn btn-info" })
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Participant Name
+        </th>
+        <th>
+            Participant Email
+        </th>
+        <th>
+            Participant MobileNo
+        </th>
+        <th>
+            Participant DOB
+        </th>
+        <th>
+            Is Attended
+        </th>        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantMobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantDOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAttended)
+            </td>
+            
+        </tr>
+    }
+
+</table>

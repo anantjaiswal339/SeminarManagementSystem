@@ -1,4 +1,4 @@
-﻿@model WebApplication1.Models.Seminar
+﻿@model WebApplication1.Models.ParticipantViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -7,18 +7,18 @@
 
 <div class="page-heading">
     <div class="pull-left">
-        <h4>Seminar Details</h4>
+        <h4>Participant Details</h4>
     </div>
     <div class="pull-right">
         @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "btn btn-info" })
     </div>
 </div>
 <hr />
+
 <div>
     <dl class="dl-horizontal">
-        
         <dt>
-            Seminar Title
+            Seminar
         </dt>
 
         <dd>
@@ -26,55 +26,47 @@
         </dd>
 
         <dt>
-            Seminar Description
+            Participant Name
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SeminarDescription)
+            @Html.DisplayFor(model => model.ParticipantName)
         </dd>
 
         <dt>
-            Seminar Type
+            Participant Email
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SeminarType)
+            @Html.DisplayFor(model => model.ParticipantEmail)
         </dd>
 
         <dt>
-            Seminar Date
+            Participant MobileNo
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SeminarDate)
+            @Html.DisplayFor(model => model.ParticipantMobileNo)
         </dd>
 
         <dt>
-            Seminar StartTime
+            Participant DOB
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SeminarStartTime)
+            @Html.DisplayFor(model => model.ParticipantDOB)
         </dd>
 
         <dt>
-            Seminar EndTime
+            Is Attended
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SeminarEndTime)
-        </dd>
-
-        <dt>
-            Created Date
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
+            @Html.DisplayFor(model => model.IsAttended)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SeminarID })    
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ParticipantID })
 </p>

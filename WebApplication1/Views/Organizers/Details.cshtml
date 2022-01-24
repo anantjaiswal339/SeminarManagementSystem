@@ -4,15 +4,19 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Details</h2>
-
+<div class="page-heading">
+    <div class="pull-left">
+        <h4>Organizer Details</h4>
+    </div>
+    <div class="pull-right">
+        @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "btn btn-info" })
+    </div>
+</div>
+<hr />
 <div>
-    <h4>Organizer</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.OrganizerName)
+            Organizer Name
         </dt>
 
         <dd>
@@ -20,7 +24,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrganizerEmail)
+            Organizer Email
         </dt>
 
         <dd>
@@ -28,7 +32,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrganizerMobileNo)
+            Organizer MobileNo
         </dt>
 
         <dd>
@@ -36,7 +40,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrganizerAddress)
+            Organizer Address
         </dt>
 
         <dd>
@@ -46,6 +50,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrganizerID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrganizerID })    
 </p>

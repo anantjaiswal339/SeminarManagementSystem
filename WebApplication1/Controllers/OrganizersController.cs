@@ -12,7 +12,7 @@ namespace WebApplication1.Controllers
 {
     public class OrganizersController : Controller
     {
-        private SeminarManagementEntities1 db = new SeminarManagementEntities1();
+        private SeminarMaangementDBContext db = new SeminarMaangementDBContext();
 
         // GET: Organizers
         public ActionResult Index()

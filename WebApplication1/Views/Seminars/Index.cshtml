@@ -65,6 +65,7 @@
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
             <td>
+                @Html.ActionLink("Show Participants", "ShowParticipants", new { id = item.SeminarID }) |
                 @Html.ActionLink("Edit", "Edit", new { id = item.SeminarID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.SeminarID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.SeminarID })
